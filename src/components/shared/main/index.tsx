@@ -32,8 +32,10 @@ const MainContent = () => {
       {/* MAIN SECTION */}
       {/* -------------------------- */}
       <div className="main-content mx-16">
-        HI I'AM <span className="frontend-word">FRONTEND</span> <br />{" "}
-        <span className="engineer-word">ENGINEER</span> <br /> & FREELANCER
+        <h1>
+          HI I'AM <span className="frontend-word">FRONTEND</span> <br />{" "}
+          <span className="engineer-word">ENGINEER</span> <br /> & FREELANCER
+        </h1>
         <div className="decor-1" />
       </div>
 

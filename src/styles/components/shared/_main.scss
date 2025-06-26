@@ -1,37 +1,44 @@
 .wrapper-main-content {
   overflow-x: hidden;
+
   .main-content {
+    width: 100vw;
+    height: 100vh;
     font-size: 248px;
     font-family: "Bebas Neue";
     line-height: 219px;
     position: relative;
-    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    margin-top: -120px;
 
-    .frontend-word {
-      position: relative;
-      &::after {
-        content: "";
-        position: absolute;
-        background-color: $purple;
-        width: 100%;
-        height: 52%;
-        left: 0;
-        bottom: 64px;
-        z-index: -1;
+    h1 {
+      .frontend-word {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: $purple;
+          width: 100%;
+          height: 52%;
+          left: 0;
+          bottom: 64px;
+          z-index: -1;
+        }
       }
-    }
 
-    .engineer-word {
-      position: relative;
-      &::after {
-        content: "";
-        position: absolute;
-        background-color: $lime;
-        width: 100%;
-        height: 52%;
-        left: 0;
-        bottom: 64px;
-        z-index: -1;
+      .engineer-word {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: $lime;
+          width: 100%;
+          height: 52%;
+          left: 0;
+          bottom: 64px;
+          z-index: -1;
+        }
       }
     }
 
@@ -41,7 +48,7 @@
       border-radius: 20px;
       background-color: $dark;
       position: absolute;
-      right: -164px;
+      right: -64px;
       bottom: -220px;
     }
   }
