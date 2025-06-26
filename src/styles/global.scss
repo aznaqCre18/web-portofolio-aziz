@@ -1,0 +1,118 @@
+@use "tailwindcss" as *;
+// @use "tailwindcss/base";
+// @use "tailwindcss/components";
+// @use "tailwindcss/utilities";
+
+/* =======================
+   Font Face Definitions
+========================== */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/satoshi-light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/satoshi-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/satoshi-medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/satoshi-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/satoshi/satoshi-black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/fonts/bebas-neue/bebas-neue-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* =======================
+   Root Variables & Theme
+========================== */
+:root {
+  --background: #f8f8f8;
+  --foreground: #424242;
+  --dark: #424242;
+  --light: #f8f8f8;
+  --purple: #7562e7;
+  --lime: #cfff71;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f8f8f8;
+    --foreground: #424242;
+  }
+}
+
+$dark: #424242;
+$light: #f8f8f8;
+$purple: #7562e7;
+$lime: #cfff71;
+
+/* =======================
+   Base Styles
+========================== */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Satoshi, Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+* {
+  // margin: 0;
+  // padding: 0;
+  box-sizing: border-box;
+}
+
+/* =======================
+   Custom Utility Classes
+========================== */
+.bg-taro {
+  background-color: var(--taro) !important;
+}
+
+.text-taro {
+  color: var(--taro) !important;
+}
+
+.bg-dark {
+  background-color: var(--dark) !important;
+}
+
+.text-light {
+  color: var(--light) !important;
+}
+
+.text-lime {
+  color: var(--lime) !important;
+}
+
+.bg-light {
+  background-color: var(--light) !important;
+}
+
+@import "./components/shared/main";
