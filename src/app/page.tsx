@@ -23,10 +23,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="my-7">
+    <div className="mt-7">
       <Header />
       <MainContent />
-      <footer></footer>
+      {/* <footer></footer> */}
     </div>
   );
 }

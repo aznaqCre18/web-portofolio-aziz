@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 // import "../styles/globals.css";
 import "../styles/global.scss";
+import Cursor from "@/components/shared/cursor";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,6 +25,7 @@ export default function RootLayout({
             backgroundSize: "500px",
           }}
         />
+        <Cursor />
         <div>{children}</div>
       </body>
     </html>

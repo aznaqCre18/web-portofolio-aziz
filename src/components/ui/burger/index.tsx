@@ -3,9 +3,9 @@ import React from "react";
 const BurgerButton = () => {
   return (
     <button>
-      <div className="bg-[#17242a]/90 w-16 h-16 rounded-full flex flex-col items-center justify-center gap-1">
-        <div className="h-[2px] w-7 rounded-[2px] bg-light" />
-        <div className="h-[2px] w-7 rounded-[2px] bg-light opacity-50" />
+      <div className="bg-[var(--lime)]/90 w-24 h-24 rounded-full flex flex-col items-center justify-center gap-1">
+        <div className="h-[3px] w-7 rounded-[2px] bg-dark" />
+        <div className="h-[3px] w-7 rounded-[2px] bg-dark opacity-50" />
       </div>
     </button>
   );
