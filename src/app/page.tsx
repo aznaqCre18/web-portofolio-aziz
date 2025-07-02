@@ -14,7 +14,7 @@ export default function Home() {
       lerp: 0.05, // ⬅️ gerakan lebih lambat dan lembut (default 0.1)
     });
 
-    function raf(time: any) {
+    function raf(time: DOMHighResTimeStamp) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }

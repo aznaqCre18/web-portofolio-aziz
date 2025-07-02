@@ -14,13 +14,13 @@ const Cursor = () => {
     );
     const quotesWord = document.getElementById("title-quotes");
 
-    const onMouseMove = (event: any) => {
+    const onMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event;
       gsap.to(cursor, { x: clientX, y: clientY, duration: 0 });
     };
 
-    const onMouseEnterLink = (event: any) => {
-      const link = event.target;
+    const onMouseEnterLink = (event: Event) => {
+      const link = event.target as HTMLElement;
       if (link.classList.contains("view")) {
         gsap.to(cursor, { scale: 4, duration: 0.3 });
         if (cursorText && cursorText instanceof HTMLElement) {
@@ -31,14 +31,14 @@ const Cursor = () => {
       }
     };
 
-    const onMouseLeaveLink = (event: any) => {
+    const onMouseLeaveLink = (_event: Event) => {
       gsap.to(cursor, { scale: 1, duration: 0.3 });
       if (cursorText && cursorText instanceof HTMLElement) {
         cursorText.style.display = "none";
       }
     };
 
-    const onMouseEnterWork = (event: any) => {
+    const onMouseEnterWork = (_event: Event) => {
       // const workSection = event.target;
       if (cursorText && cursorText instanceof HTMLElement) {
         cursorText.style.display = "block";
@@ -52,7 +52,7 @@ const Cursor = () => {
       gsap.to(cursor, { scale: 4 });
     };
 
-    const onMouseLeaveWork = (event: any) => {
+    const onMouseLeaveWork = (_event: Event) => {
       // const workSection = event.target;
       gsap.to(cursor, { scale: 1 });
       if (cursor && cursor instanceof HTMLElement) {

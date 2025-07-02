@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LabelIcon from "@/components/ui/label";
 import Link from "next/link";
-// @ts-expect-error
+// @ts-expect-error This prop is optional and type is wrong
 import { Textfit } from "react-textfit";
 import LiquidSplitButton from "@/components/ui/liquid-split-button";
 
@@ -250,7 +250,7 @@ const MainContent = () => {
       {/* -------------------------- */}
       <div className="main-content mx-16">
         <h1>
-          HI I'AM <span className="frontend-word">FRONTEND</span> <br />{" "}
+          HI I&apos;AM <span className="frontend-word">FRONTEND</span> <br />{" "}
           <span className="engineer-word">ENGINEER</span> <br /> & FREELANCER
         </h1>
         <div className="decor-1" />
@@ -497,19 +497,19 @@ const MainContent = () => {
       {/* -------------------------- */}
       <div id="work-together-section" className="work-together-section">
         <div className="row-work one">
-          <h1 className="whitespace-nowrap one">Let's work together.</h1>
-          <h1 className="whitespace-nowrap one">Let's work together.</h1>
-          <h1 className="whitespace-nowrap one">Let's work together.</h1>
+          <h1 className="whitespace-nowrap one">Let&apos;s work together.</h1>
+          <h1 className="whitespace-nowrap one">Let&apos;s work together.</h1>
+          <h1 className="whitespace-nowrap one">Let&apos;s work together.</h1>
         </div>
         <div className="row-work two flex-row-reverse">
-          <h1 className="whitespace-nowrap two">Let's work together.</h1>
-          <h1 className="whitespace-nowrap two">Let's work together.</h1>
-          <h1 className="whitespace-nowrap two">Let's work together.</h1>
+          <h1 className="whitespace-nowrap two">Let&apos;s work together.</h1>
+          <h1 className="whitespace-nowrap two">Let&apos;s work together.</h1>
+          <h1 className="whitespace-nowrap two">Let&apos;s work together.</h1>
         </div>
         <div className="row-work three">
-          <h1 className="whitespace-nowrap three">Let's work together.</h1>
-          <h1 className="whitespace-nowrap three">Let's work together.</h1>
-          <h1 className="whitespace-nowrap three">Let's work together.</h1>
+          <h1 className="whitespace-nowrap three">Let&apos;s work together.</h1>
+          <h1 className="whitespace-nowrap three">Let&apos;s work together.</h1>
+          <h1 className="whitespace-nowrap three">Let&apos;s work together.</h1>
         </div>
       </div>
 
