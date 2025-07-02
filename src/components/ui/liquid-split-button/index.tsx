@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import { cn } from "@/utils/utils";
 
 type LiquidSplitButtonProps = {
   label?: string;
@@ -12,9 +13,8 @@ type LiquidSplitButtonProps = {
 };
 
 export default function LiquidSplitButton({
-  label,
-  icon = "",
-  onClick,
+  label = "Start a Conversation",
+  onClick = () => {},
   className = "",
 }: LiquidSplitButtonProps) {
   const leftRef = useRef(null);
@@ -50,9 +50,14 @@ export default function LiquidSplitButton({
   };
 
   return (
-    <button onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+    <button
+      onClick={onClick}
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+      className={cn(className)}
+    >
       <span ref={leftRef} className="title">
-        Start a Conversation
+        {label}
       </span>
       <span ref={rightRef} className="icon-arrow">
         <span ref={iconRef}>

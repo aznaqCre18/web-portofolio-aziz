@@ -10,7 +10,7 @@ import LiquidSplitButton from "@/components/ui/liquid-split-button";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const textHello = "HELLOOOOO";
+// const textHello = "HELLOOOOO";
 const works = ["rapor", "ruddis", "yayasan web", "covaccine"];
 const company = ["infosys", "moladin", "majoo", "qoin", "telkom"];
 const rowOneStack = [
@@ -307,7 +307,7 @@ const MainContent = () => {
             <p className="text-xl/[32px]">
               My name is <b>Aziz</b> Nur Abdul Qodir, a passionate{" "}
               <b>Frontend Engineer</b> with 5 years of experience building
-              scalable, high-performance web applications. I’ve honed my
+              scalable, high-performance web applications. I&apos;ve honed my
               expertise in <b>React.js</b>, <b>Next.js</b>, and modern tools
               like Tailwind CSS, TypeScript, Redux, Zustand, GSAP, and Framer
               Motion.
@@ -357,8 +357,8 @@ const MainContent = () => {
         />
         <div className="title-quotes" id="title-quotes">
           <h1>
-            "Sometimes it is the people no one can imagine anything of who do
-            the things no one can imagine.
+            &quot;Sometimes it is the people no one can imagine anything of who
+            do the things no one can imagine.
           </h1>
           <h3>Alan Turing</h3>
         </div>

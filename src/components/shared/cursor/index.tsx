@@ -31,14 +31,14 @@ const Cursor = () => {
       }
     };
 
-    const onMouseLeaveLink = (_event: Event) => {
+    const onMouseLeaveLink = () => {
       gsap.to(cursor, { scale: 1, duration: 0.3 });
       if (cursorText && cursorText instanceof HTMLElement) {
         cursorText.style.display = "none";
       }
     };
 
-    const onMouseEnterWork = (_event: Event) => {
+    const onMouseEnterWork = () => {
       // const workSection = event.target;
       if (cursorText && cursorText instanceof HTMLElement) {
         cursorText.style.display = "block";
@@ -52,7 +52,7 @@ const Cursor = () => {
       gsap.to(cursor, { scale: 4 });
     };
 
-    const onMouseLeaveWork = (_event: Event) => {
+    const onMouseLeaveWork = () => {
       // const workSection = event.target;
       gsap.to(cursor, { scale: 1 });
       if (cursor && cursor instanceof HTMLElement) {
