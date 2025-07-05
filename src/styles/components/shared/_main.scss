@@ -149,22 +149,34 @@
   }
 
   .experience-section {
-    text-align: right;
+    text-align: center;
     h1 {
       font-family: "Bebas Neue";
     }
 
-    .list-portofolio-section {
+    .list-company-section {
       font-family: "Bebas Neue";
       font-size: 164px;
 
-      .list-porto {
+      .list-company {
         display: flex;
-        flex-direction: column;
-        // gap: 20px;
+        flex-direction: row-reverse;
+        // gap: 40px;
+        width: 100vw;
+        height: 100vh;
+        background-color: #101010;
 
-        div {
-          cursor: pointer;
+        div.company-box {
+          min-width: 100vw;
+          color: $light;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:first-child {
+            background-color: $light;
+            color: $dark;
+          }
         }
       }
     }

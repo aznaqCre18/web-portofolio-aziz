@@ -9,10 +9,54 @@ import { Textfit } from "react-textfit";
 import LiquidSplitButton from "@/components/ui/liquid-split-button";
 
 gsap.registerPlugin(ScrollTrigger);
+{
+  /* <div className="py-16 ">
+          <p className="text-xl mb-3">My Work Experience</p>
+          <h1 className="text-[56px]/16 color-foreground">
+            A Journey Through <br /> My Professional Milestones
+          </h1>
+        </div> */
+}
 
 // const textHello = "HELLOOOOO";
 const works = ["rapor", "ruddis", "yayasan web", "covaccine"];
-const company = ["infosys", "moladin", "majoo", "qoin", "telkom"];
+const company = [
+  {
+    id: 0,
+    name: "title",
+    workFrom: "desc",
+  },
+  {
+    id: 1,
+    name: "rolling glory",
+    workFrom: "jul 2025 - present",
+  },
+  {
+    id: 2,
+    name: "infosys",
+    workFrom: "nov 2023 - jul 2025",
+  },
+  {
+    id: 3,
+    name: "moladin",
+    workFrom: "jun 2023 - feb 2024",
+  },
+  {
+    id: 4,
+    name: "majoo",
+    workFrom: "april 2022 - jun 2023",
+  },
+  {
+    id: 5,
+    name: "qoin",
+    workFrom: "nov 2021 - april 2022",
+  },
+  {
+    id: 6,
+    name: "telkom indonesia",
+    workFrom: "jun 2020 - nov 2021",
+  },
+];
 const rowOneStack = [
   {
     icon: "/assets/icons/github.svg",
@@ -226,6 +270,10 @@ const MainContent = () => {
   const quotesSection = useRef(null);
   const imagesQuotes = useRef(null);
 
+  // horizontal scroll on experience
+  const experienceRef = useRef<Array<HTMLDivElement | null>>([]);
+  const experienceWrapperRef = useRef<HTMLDivElement>(null);
+
   useLayoutEffect(() => {
     const context = gsap.context(() => {
       const tl = gsap.timeline({
@@ -238,6 +286,23 @@ const MainContent = () => {
       });
 
       tl.to(imagesQuotes.current, { y: -200 }, 0);
+
+      // horizontal scroll
+      gsap.to(experienceRef.current, {
+        xPercent: 100 * (experienceRef.current.length - 1),
+        ease: "none",
+        scrollTrigger: {
+          trigger: experienceWrapperRef.current,
+          scrub: 1,
+          end: () => "+=" + experienceWrapperRef.current?.offsetWidth,
+          pin: true,
+          snap: {
+            snapTo: 1 / (experienceRef.current.length - 1),
+            duration: 0.25, // lebih cepat dari default 0.1
+            ease: "power1.inOut",
+          },
+        },
+      });
     });
 
     return () => context.revert();
@@ -344,6 +409,10 @@ const MainContent = () => {
           </div>
         </div>
       </div>
+
+      {/* -------------------------- */}
+      {/* QUOTE SECTION */}
+      {/* -------------------------- */}
       <div
         ref={quotesSection}
         className="quotes-section relative w-full h-[200vh]"
@@ -363,24 +432,37 @@ const MainContent = () => {
           <h3>Alan Turing</h3>
         </div>
       </div>
+
       {/* -------------------------- */}
       {/* EXPEREINCE SECTION */}
       {/* -------------------------- */}
-      <div className="experience-section mx-16 mb-[240px]">
-        <div className="py-16 border-b-1 border-[#D6D6D6] mb-16">
-          <p className="text-xl mb-3">My Work Experience</p>
-          <h1 className="text-[56px]/16 color-foreground">
-            A Journey Through <br /> My Professional Milestones
-          </h1>
-        </div>
-        <div className="list-portofolio-section">
-          <div className="list-porto">
+      <div className="experience-section mt-16 mb-[240px]">
+        <div className="list-company-section" ref={experienceWrapperRef}>
+          <div className="list-company">
             {company.map((comp, idx) => (
-              <a key={`comp-${idx}`}>
-                {comp.split("").map((word, idxW) => (
-                  <span key={`word-${idxW}`}>{word}</span>
-                ))}
-              </a>
+              <div
+                className="company-box"
+                key={`comp-${idx}-${comp.id}`}
+                ref={(ref) => {
+                  experienceRef.current[idx] = ref;
+                }}
+              >
+                {comp.id === 0 ? (
+                  <div className="py-16">
+                    <p className="text-xl mb-3">My Work Experience</p>
+                    <h1 className="text-[56px]/16 color-foreground">
+                      A Journey Through <br /> My Professional Milestones
+                    </h1>
+                  </div>
+                ) : (
+                  <a>
+                    {comp.name.split("").map((word, idxW) => (
+                      <span key={`word-${idxW}`}>{word}</span>
+                    ))}
+                    <span className="text-4xl block">{comp.workFrom}</span>
+                  </a>
+                )}
+              </div>
             ))}
           </div>
         </div>
