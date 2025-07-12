@@ -26,7 +26,6 @@ export default function Home() {
     <div className="mt-7">
       <Header />
       <MainContent />
-      {/* <footer></footer> */}
     </div>
   );
 }

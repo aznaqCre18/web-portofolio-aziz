@@ -88,7 +88,7 @@
 
     .me-section {
       .right-section {
-        button {
+        .btn-more-about-me {
           font-size: 32px;
           font-family: "Bebas Neue";
         }
@@ -211,7 +211,7 @@
       .list-stack {
         list-style: none;
         flex-shrink: 0;
-        min-width: 100%;
+        // width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -219,19 +219,19 @@
         user-select: none;
 
         &.one {
-          animation: scroll 32s linear infinite backwards;
+          animation: scroll 20s linear infinite backwards;
         }
 
         &.two {
-          animation: scrollReverse 32s linear infinite forwards;
+          animation: scrollReverse 20s linear infinite forwards;
         }
 
         &.three {
-          animation: scroll 32s linear infinite backwards;
+          animation: scroll 20s linear infinite backwards;
         }
 
         &.four {
-          animation: scrollReverse 32s linear infinite forwards;
+          animation: scrollReverse 20s linear infinite forwards;
         }
       }
     }
@@ -263,12 +263,10 @@
   }
 
   .footer-section {
-    height: 800px;
+    height: 864px;
     width: 100vw;
     margin-top: 96px;
     background-color: $dark;
-    // border-top-left-radius: 64px;
-    // border-top-right-radius: 64px;
     color: $light;
     clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
 
@@ -325,7 +323,7 @@
           gap: 10px;
 
           // li {
-          //   // nanti disini stylenya
+
           // }
         }
       }
