@@ -42,8 +42,8 @@ export default function LiquidSplitButton({
       ease: "power3.inOut",
     });
 
-    gsap.to(iconRef, {
-      rotate: -45,
+    gsap.to(iconRef.current, {
+      rotate: 0,
       duration: 0.5,
       ease: "power3.out",
     });
@@ -54,7 +54,7 @@ export default function LiquidSplitButton({
       onClick={onClick}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      className={cn(className)}
+      className={cn(className, "cursor-pointer")}
     >
       <span ref={leftRef} className="title">
         {label}

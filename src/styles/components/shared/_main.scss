@@ -263,12 +263,14 @@
   }
 
   .footer-section {
+    height: 800px;
     width: 100vw;
     margin-top: 96px;
     background-color: $dark;
-    border-top-left-radius: 64px;
-    border-top-right-radius: 64px;
+    // border-top-left-radius: 64px;
+    // border-top-right-radius: 64px;
     color: $light;
+    clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);
 
     .top-section {
       padding: 94px 122px 148px 122px;
