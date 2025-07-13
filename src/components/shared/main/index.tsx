@@ -25,15 +25,22 @@ import FooterSection from "./footer-section";
 gsap.registerPlugin(ScrollTrigger);
 
 const MainContent = () => {
+  // ref on hello section
+  const helloSectionRef = useRef<HTMLDivElement>(null);
+  const helloWordRef = useRef<Array<HTMLDivElement | null>>([]);
+  const imageProfileSectionRef = useRef<HTMLDivElement>(null);
+
+  // ref on quotes section to handle parallac animation
   const quotesSectionRef = useRef<HTMLDivElement>(null);
   const imagesQuotesRef = useRef<HTMLImageElement>(null);
 
-  // horizontal scroll on experience
+  // ref on experince section to handle horizontal scroll
   const experienceRef = useRef<Array<HTMLDivElement | null>>([]);
   const experienceWrapperRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
+      // parallac animation on quotes section
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: quotesSectionRef.current,
@@ -61,13 +68,28 @@ const MainContent = () => {
           },
         },
       });
+
+      gsap.from([helloWordRef.current, imageProfileSectionRef.current], {
+        opacity: 1,
+        y: 1040,
+        duration: 0.5,
+        ease: "power4.out",
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: helloSectionRef.current,
+          start: "top 80%",
+          end: "bottom 65%",
+          scrub: true,
+          toggleActions: "play none none reverse",
+        },
+      });
     });
 
     return () => context.revert();
   }, []);
 
   return (
-    <div className="mt-30 wrapper-main-content relative">
+    <main className="mt-30 wrapper-main-content relative">
       {/* -------------------------- */}
       {/* MAIN SECTION */}
       {/* -------------------------- */}
@@ -76,7 +98,11 @@ const MainContent = () => {
       {/* -------------------------- */}
       {/* HELLO SECTION */}
       {/* -------------------------- */}
-      <HelloSection />
+      <HelloSection
+        helloSectionRef={helloSectionRef}
+        helloWordRef={helloWordRef}
+        imageProfileSectionRef={imageProfileSectionRef}
+      />
 
       {/* -------------------------- */}
       {/* WORK SECTION */}
@@ -113,7 +139,7 @@ const MainContent = () => {
       {/* FOOTER SECTION */}
       {/* -------------------------- */}
       <FooterSection />
-    </div>
+    </main>
   );
 };
 

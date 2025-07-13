@@ -1,33 +1,49 @@
-import LinkHoverEffect from "@/components/ui/link-hover";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
-const HelloSection = () => {
+import LinkHoverEffect from "@/components/ui/link-hover";
+import { spawn } from "child_process";
+
+type HelloSectionProps = {
+  helloSectionRef: React.RefObject<HTMLDivElement | null>;
+  imageProfileSectionRef: React.RefObject<HTMLDivElement | null>;
+  helloWordRef: React.RefObject<Array<HTMLSpanElement | null>>;
+};
+
+const helloWord = "HELLOOOO";
+
+const HelloSection: React.FC<HelloSectionProps> = ({
+  helloSectionRef,
+  helloWordRef,
+  imageProfileSectionRef,
+}) => {
   return (
-    <section className="hello-section mx-16">
+    <section ref={helloSectionRef} className="hello-section mx-16">
       <div>
-        <div className="image-profile-section">
-          <Image
-            src="/assets/images/profile.png"
-            alt="profile"
-            width={408}
-            height={565}
-          />
+        <div className="overflow-hidden">
+          <div ref={imageProfileSectionRef} className="image-profile-section">
+            <Image
+              src="/assets/images/profile.png"
+              alt="profile"
+              width={408}
+              height={565}
+            />
+          </div>
         </div>
         <h1 className="hello-word">
-          <span>H</span>
-          <span>E</span>
-          <span>L</span>
-          <span>L</span>
-          <span>O</span>
-          <span>O</span>
-          <span>O</span>
-          <span>O</span>
-          <span>O</span>
+          {helloWord.split("").map((word, idx) => (
+            <span
+              key={`hello-word-${idx}`}
+              ref={(ref) => {
+                helloWordRef.current[idx] = ref;
+              }}
+            >
+              <span>{word}</span>
+            </span>
+          ))}
         </h1>
       </div>
-      <div className="me-section -mt-32 flex justify-between">
+      <div className="me-section mt-10 flex justify-between">
         <div className="left-section w-[38%] line">
           <p className="text-xl/[32px]">
             My name is <b>Aziz</b> Nur Abdul Qodir, a passionate{" "}
@@ -42,7 +58,12 @@ const HelloSection = () => {
             Building accessible and <br /> delightful web <br /> interfaces.
           </p>
           <button className="btn-more-about-me">
-            <LinkHoverEffect href="#" label="MORE ABOUT ME" type="dark" />
+            <LinkHoverEffect
+              href="#"
+              label="MORE ABOUT ME"
+              type="dark"
+              boldLine
+            />
           </button>
         </div>
       </div>

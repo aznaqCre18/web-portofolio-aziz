@@ -64,6 +64,7 @@
       width: 408px;
       margin: auto;
       top: -124px;
+      z-index: 10;
 
       &::after {
         content: "";
@@ -80,10 +81,12 @@
 
     .hello-word {
       font-family: "Bebas Neue";
-      font-size: 432px;
+      font-size: 464px;
       display: flex;
       justify-content: space-between;
       letter-spacing: -3%;
+      overflow: hidden;
+      height: 512px;
     }
 
     .me-section {
@@ -109,7 +112,7 @@
       .list-porto {
         display: flex;
         flex-direction: column;
-        // gap: 20px;
+        width: fit-content;
 
         div {
           cursor: pointer;

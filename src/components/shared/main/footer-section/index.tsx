@@ -17,7 +17,7 @@ const FooterSection = () => {
               Do you like <br /> what you see?
             </h1>
             <LiquidSplitButton
-              label="About Shape"
+              label="Start a Conversation"
               icon="/assets/icons/arrow.svg"
               onClick={() => console.log("Clicked!")}
             />
