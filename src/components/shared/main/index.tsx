@@ -1,18 +1,6 @@
 import React, { useLayoutEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import LabelIcon from "@/components/ui/label";
-import Link from "next/link";
-import LiquidSplitButton from "@/components/ui/liquid-split-button";
-import {
-  company,
-  rowFourStack,
-  rowOneStack,
-  rowThreeStack,
-  rowTwoStack,
-  works,
-} from "@/consts/skillsSet";
 import MainSection from "./main-section";
 import HelloSection from "./hello-section";
 import WorkSection from "./work-section";

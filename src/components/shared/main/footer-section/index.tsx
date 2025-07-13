@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 // @ts-expect-error This prop is optional and type is wrong
 import { Textfit } from "react-textfit";
 

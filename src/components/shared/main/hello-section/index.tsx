@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 
 import LinkHoverEffect from "@/components/ui/link-hover";
-import { spawn } from "child_process";
 
 type HelloSectionProps = {
   helloSectionRef: React.RefObject<HTMLDivElement | null>;
