@@ -17,6 +17,9 @@ const MainContent = () => {
   const helloSectionRef = useRef<HTMLDivElement>(null);
   const helloWordRef = useRef<Array<HTMLDivElement | null>>([]);
   const imageProfileSectionRef = useRef<HTMLDivElement>(null);
+  const introduceSectionRef = useRef<HTMLParagraphElement>(null);
+  const sloganSectionRef = useRef<HTMLParagraphElement>(null);
+  const btnAboutMeRef = useRef<HTMLButtonElement>(null);
 
   // ref on quotes section to handle parallac animation
   const quotesSectionRef = useRef<HTMLDivElement>(null);
@@ -59,7 +62,7 @@ const MainContent = () => {
 
       gsap.from([helloWordRef.current, imageProfileSectionRef.current], {
         opacity: 1,
-        y: 1040,
+        y: 800,
         duration: 0.5,
         ease: "power4.out",
         stagger: 0.05,
@@ -68,6 +71,46 @@ const MainContent = () => {
           start: "top 80%",
           end: "bottom 65%",
           scrub: true,
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from(introduceSectionRef.current, {
+        opacity: 0,
+        x: -800,
+        ease: "power2.out",
+        duration: 1,
+        scrollTrigger: {
+          trigger: helloSectionRef.current,
+          start: "top 40%",
+          end: "bottom 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from(sloganSectionRef.current, {
+        opacity: 0,
+        x: 600,
+        ease: "power2.out",
+        duration: 1,
+        scrollTrigger: {
+          trigger: helloSectionRef.current,
+          start: "top 40%",
+          end: "bottom 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from(btnAboutMeRef.current, {
+        opacity: 0,
+        y: 300,
+        ease: "power2.out",
+        duration: 1,
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: helloSectionRef.current,
+          start: "top 40%",
+          end: "bottom 80%",
           toggleActions: "play none none reverse",
         },
       });
@@ -90,6 +133,9 @@ const MainContent = () => {
         helloSectionRef={helloSectionRef}
         helloWordRef={helloWordRef}
         imageProfileSectionRef={imageProfileSectionRef}
+        introduceSectionRef={introduceSectionRef}
+        sloganSectionRef={sloganSectionRef}
+        btnAboutMeRef={btnAboutMeRef}
       />
 
       {/* -------------------------- */}
