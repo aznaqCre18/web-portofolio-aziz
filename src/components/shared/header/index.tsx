@@ -3,8 +3,8 @@ import Image from "next/image";
 import React from "react";
 
 type HeaderProps = {
-  logoSectionRef: any;
-  burgerSectionRef: any;
+  logoSectionRef: React.RefObject<HTMLDivElement | null>;
+  burgerSectionRef: React.RefObject<HTMLButtonElement | null>;
 };
 
 const Header: React.FC<HeaderProps> = ({

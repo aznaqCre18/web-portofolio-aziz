@@ -9,8 +9,8 @@ import MainContent from "@/components/shared/main";
 
 export default function Home() {
   // ref on header section
-  const logoSectionRef = useRef(null);
-  const burgerSectionRef = useRef(null);
+  const logoSectionRef = useRef<HTMLDivElement | null>(null);
+  const burgerSectionRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
     const lenis = new Lenis({

@@ -1,7 +1,7 @@
 import React from "react";
 
 type BurgerButtonProps = {
-  burgerSectionRef: any;
+  burgerSectionRef: React.RefObject<HTMLButtonElement | null>;
 };
 
 const BurgerButton: React.FC<BurgerButtonProps> = ({ burgerSectionRef }) => {
