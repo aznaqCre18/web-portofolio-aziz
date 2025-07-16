@@ -60,6 +60,7 @@ const MainContent = () => {
         },
       });
 
+      // animation on hello section
       gsap.from([helloWordRef.current, imageProfileSectionRef.current], {
         opacity: 1,
         y: 800,

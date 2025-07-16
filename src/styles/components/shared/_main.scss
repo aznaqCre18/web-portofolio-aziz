@@ -18,10 +18,10 @@
 
 @keyframes scaleUp {
   from {
-    scale: 0;
+    transform: rotate(-360deg) scale(0);
   }
   to {
-    scale: 1;
+    transform: rotate(0deg) scale(1);
   }
 }
 
@@ -81,9 +81,9 @@
       position: absolute;
       right: 0px;
       bottom: -100px;
-      scale: 0;
-      animation: scaleUp 1s cubic-bezier(0, 0.26, 0.29, 1.5) forwards;
-      animation-delay: 2s;
+      // transform: scale(0);
+      // animation: scaleUp 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+      // animation-delay: 2s;
     }
 
     &::after {
@@ -151,6 +151,31 @@
   }
 
   .work-section {
+    position: relative;
+    .decor-wrapper {
+      display: flex;
+      align-items: flex-end;
+      gap: 60px;
+      position: absolute;
+      top: -164px;
+      left: 542px;
+
+      .decor-2 {
+        width: 84px;
+        height: 84px;
+        background-color: $dark;
+        border-radius: 20px;
+      }
+
+      .decor-3 {
+        width: 146px;
+        height: 146px;
+        background-color: $dark;
+        border-radius: 20px;
+        margin-bottom: 24px;
+      }
+    }
+
     h1 {
       font-family: "Bebas Neue";
       font-size: 56px;
@@ -163,11 +188,17 @@
       .list-porto {
         display: flex;
         flex-direction: column;
-        width: fit-content;
+        // width: fit-content;
 
-        div {
-          cursor: pointer;
-        }
+        // a {
+        //   .wrapper-work-text {
+        //     .work-text-2 {
+        //       span {
+        //         transform: translateY(250px);
+        //       }
+        //     }
+        //   }
+        // }
       }
     }
   }
@@ -189,7 +220,7 @@
       top: 50%;
       left: 50%;
       font-size: 96px;
-      color: $lime;
+      color: $light;
       text-align: center;
       font-family: "Bebas Neue";
       line-height: 98%;

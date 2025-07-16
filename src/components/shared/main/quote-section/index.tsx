@@ -22,7 +22,7 @@ const QuoteSection: React.FC<QuoteSectionProps> = ({
         fill
         className="image-quotes"
       />
-      <div className="title-quotes" id="title-quotes">
+      <div className="title-quotes text-lime" id="title-quotes">
         <h1>
           &quot;Sometimes it is the people no one can imagine anything of who do
           the things no one can imagine.

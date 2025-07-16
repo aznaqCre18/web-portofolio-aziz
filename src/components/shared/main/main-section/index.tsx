@@ -1,13 +1,56 @@
 import React from "react";
+import gsap from "gsap";
 
 const MainSection = () => {
+  const mainContentSectionRef = React.useRef<HTMLDivElement>(null);
+  const decor1Ref = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const context = gsap.context(() => {
+      gsap.fromTo(
+        decor1Ref.current,
+        {
+          scale: 0,
+          rotation: 0,
+        },
+        {
+          scale: 0.9,
+          rotation: 400,
+          ease: "power4.in",
+          duration: 2,
+        }
+      );
+
+      gsap.fromTo(
+        decor1Ref.current,
+        {
+          scale: 0.93,
+          rotation: 30,
+        },
+        {
+          rotation: 360,
+          scale: 0,
+          ease: "power4.in",
+          scrollTrigger: {
+            trigger: mainContentSectionRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    return () => context.revert();
+  }, []);
+
   return (
-    <section className="main-content mx-16">
+    <section ref={mainContentSectionRef} className="main-content mx-16">
       <h1>
         HI I&apos;AM <span className="frontend-word">FRONTEND</span> <br />{" "}
         <span className="engineer-word">ENGINEER</span> <br /> & FREELANCER
       </h1>
-      <div className="decor-1" />
+      <div ref={decor1Ref} className="decor-1" />
     </section>
   );
 };
