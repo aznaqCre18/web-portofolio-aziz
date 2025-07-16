@@ -51,7 +51,7 @@
           left: 0;
           bottom: 64px;
           z-index: -1;
-          animation: goOut 1s cubic-bezier(0, 0.26, 0.29, 1.5) forwards;
+          animation: goOut 1s cubic-bezier(0.71, 0.06, 0.06, 0.93) forwards;
           animation-delay: 2.5s;
         }
       }
@@ -63,11 +63,10 @@
           position: absolute;
           background-color: $lime;
           width: 100%;
-          // height: 52%;
           left: 0;
           bottom: 64px;
           z-index: -1;
-          animation: goOut 1s cubic-bezier(0, 0.26, 0.29, 1.5) forwards;
+          animation: goOut 1s cubic-bezier(0.71, 0.06, 0.06, 0.93) forwards;
           animation-delay: 2.5s;
         }
       }
@@ -81,9 +80,6 @@
       position: absolute;
       right: 0px;
       bottom: -100px;
-      // transform: scale(0);
-      // animation: scaleUp 1s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
-      // animation-delay: 2s;
     }
 
     &::after {
@@ -92,10 +88,10 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
+      height: 75vh;
       background-color: $light;
       z-index: 2;
-      animation: goUp 1s cubic-bezier(0, 0.26, 0.29, 1.5) forwards;
+      animation: goUp 2s cubic-bezier(0.71, 0.06, 0.06, 0.93) forwards;
       animation-delay: 2s;
     }
   }

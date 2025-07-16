@@ -17,7 +17,7 @@ const MainSection = () => {
           scale: 0.9,
           rotation: 400,
           ease: "power4.in",
-          duration: 2,
+          duration: 2.5,
         }
       );
 
