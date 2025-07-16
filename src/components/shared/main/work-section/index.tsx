@@ -129,7 +129,7 @@ const WorkSection = () => {
       <div className="list-portofolio-section">
         <div className="list-porto">
           {works.map((comp, idx) => (
-            <React.Fragment>
+            <React.Fragment key={`work-${idx}`}>
               <a
                 onMouseEnter={() => {
                   onMouseEnterWordPorto(idx);
@@ -139,7 +139,6 @@ const WorkSection = () => {
                   onMouseLeaveWordPorto(idx);
                   setHoveredListIndex(null);
                 }}
-                key={`works-${idx}`}
                 className={cn(
                   "mb-4",
                   hoveredListIndex === null
