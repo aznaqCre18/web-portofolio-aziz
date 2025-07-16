@@ -53,8 +53,8 @@
 ========================== */
 :root {
   --background: #f8f8f8;
-  --foreground: #424242;
-  --dark: #424242;
+  --foreground: #17242a;
+  --dark: #17242a;
   --light: #f8f8f8;
   --purple: #7562e7;
   --lime: #cfff71;
@@ -63,11 +63,11 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #f8f8f8;
-    --foreground: #424242;
+    --foreground: #17242a;
   }
 }
 
-$dark: #424242;
+$dark: #17242a;
 $light: #f8f8f8;
 $purple: #7562e7;
 $lime: #cfff71;

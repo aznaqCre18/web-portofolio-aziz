@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({
   burgerSectionRef,
 }) => {
   return (
-    <header className="fixed top-0 w-full left-0 px-16 py-7 z-[9999]">
+    <header className="fixed top-0 w-full left-0 px-10 py-4 z-[999]">
       <div className="flex justify-between items-center">
         <div className="overflow-x-hidden">
           <div ref={logoSectionRef}>
