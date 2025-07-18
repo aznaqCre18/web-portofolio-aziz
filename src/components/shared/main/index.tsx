@@ -125,7 +125,7 @@ const MainContent = () => {
       {/* -------------------------- */}
       {/* MAIN SECTION */}
       {/* -------------------------- */}
-      <MainSection />
+      <MainSection helloSectionRef={helloSectionRef} />
 
       {/* -------------------------- */}
       {/* HELLO SECTION */}
