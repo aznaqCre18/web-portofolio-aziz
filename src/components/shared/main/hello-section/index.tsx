@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
 
 import LinkHoverEffect from "@/components/ui/link-hover";
 
@@ -22,6 +23,26 @@ const HelloSection: React.FC<HelloSectionProps> = ({
   sloganSectionRef,
   btnAboutMeRef,
 }) => {
+  const decor2Ref = useRef<HTMLDivElement>(null);
+  const decor3Ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const context = gsap.context(() => {
+      gsap.to([decor2Ref.current, decor3Ref.current], {
+        rotation: 360,
+        ease: "none",
+        scrollTrigger: {
+          trigger: decor2Ref.current,
+          start: "top bottom",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    });
+
+    return () => context.revert();
+  }, []);
+
   return (
     <section ref={helloSectionRef} className="hello-section mx-16">
       <div>
@@ -71,6 +92,10 @@ const HelloSection: React.FC<HelloSectionProps> = ({
             />
           </button>
         </div>
+      </div>
+      <div className="decor-wrapper">
+        <div ref={decor2Ref} className="decor-2"></div>
+        <div ref={decor3Ref} className="decor-3"></div>
       </div>
     </section>
   );

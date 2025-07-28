@@ -5,28 +5,20 @@ import { works } from "@/consts/skillsSet";
 import Image from "next/image";
 import { cn } from "@/utils/utils";
 
+const arrDumIm = ["satu", "dua", "tiga", "empat", "lima"];
+
 const WorkSection = () => {
   const [hoveredListIndex, setHoveredListIndex] = useState<number | null>(null);
 
   const wordWorkRef = useRef<Array<Array<HTMLSpanElement | null>>>([]);
   const wordWorkSecRef = useRef<Array<Array<HTMLSpanElement | null>>>([]);
   const arrowWorkSecRef = useRef<Array<HTMLSpanElement | null>>([]);
-  const decor2Ref = useRef<HTMLDivElement>(null);
-  const decor3Ref = useRef<HTMLDivElement>(null);
+  const previewImageRef = useRef<HTMLDivElement>(null);
+  const listPortoSectionRef = useRef<HTMLDivElement>(null);
+  const imagePreviewWorksRef = useRef<Array<HTMLImageElement | null>>([]);
 
   useEffect(() => {
     const context = gsap.context(() => {
-      gsap.to([decor2Ref.current, decor3Ref.current], {
-        rotation: 360,
-        ease: "none",
-        scrollTrigger: {
-          trigger: decor2Ref.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
       gsap.set(arrowWorkSecRef.current, {
         y: 250,
         rotation: -45,
@@ -35,9 +27,47 @@ const WorkSection = () => {
       gsap.set(wordWorkSecRef.current, {
         y: 250,
       });
+
+      gsap.set(previewImageRef.current, {
+        opacity: 0,
+      });
     });
 
     return () => context.revert();
+  }, []);
+
+  const handleMouseMove = (event: MouseEvent) => {
+    const y = event.pageY;
+
+    gsap.to(previewImageRef.current, {
+      opacity: 1,
+      y: y - 274,
+      duration: 0.5,
+      ease: "power4.out",
+    });
+  };
+
+  useEffect(() => {
+    const workSectionRef = listPortoSectionRef.current;
+
+    console.log(imagePreviewWorksRef, "<<< IMG PREVIEW");
+
+    if (workSectionRef) {
+      workSectionRef.addEventListener("mouseenter", () => {
+        window.addEventListener("mousemove", handleMouseMove);
+      });
+
+      workSectionRef.addEventListener("mouseleave", () => {
+        window.removeEventListener("mousemove", handleMouseMove);
+        gsap.to(previewImageRef.current, {
+          opacity: 0,
+        });
+      });
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   const onMouseEnterWordPorto = (idx: number) => {
@@ -70,7 +100,7 @@ const WorkSection = () => {
       y: 0,
       rotation: 0,
       duration: 0.8,
-      delay: 0.5,
+      delay: 1,
       ease: "cubic-bezier(.71,.06,.06,.93)",
     });
   };
@@ -109,25 +139,28 @@ const WorkSection = () => {
       y: 250,
       rotation: -45,
       duration: 0.8,
-      delay: 0.5,
+      delay: 1,
       ease: "cubic-bezier(.71,.06,.06,.93)",
     });
   };
 
   return (
     <section className="work-section mt-[274px] mx-16">
-      <div className="decor-wrapper">
-        <div ref={decor2Ref} className="decor-2"></div>
-        <div ref={decor3Ref} className="decor-3"></div>
-      </div>
       <div className="py-16 border-b-1 border-[#D6D6D6] mb-16">
         <p className="text-xl mb-3">My Selected Project</p>
         <h1 className="text-[56px]/16 color-foreground">
           Get a taste of <br /> what I do best
         </h1>
       </div>
-      <div className="list-portofolio-section">
+      <div ref={listPortoSectionRef} className="list-portofolio-section">
         <div className="list-porto">
+          <div ref={previewImageRef} className="preview-img flex flex-col">
+            {arrDumIm.map((im, idx) => (
+              <div className="img-wrapper" key={idx}>
+                <div className="image-one">{im}</div>
+              </div>
+            ))}
+          </div>
           {works.map((comp, idx) => (
             <React.Fragment key={`work-${idx}`}>
               <a
