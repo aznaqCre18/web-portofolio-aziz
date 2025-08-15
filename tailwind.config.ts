@@ -1,7 +1,5 @@
 import type { Config } from "tailwindcss";
 
-console.log("gila");
-
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",

@@ -184,9 +184,13 @@
   .work-section {
     // position: relative;
 
-    h1 {
-      font-family: "Bebas Neue";
-      font-size: 56px;
+    .title-wrapper {
+      position: relative;
+      z-index: -2;
+      h1 {
+        font-family: "Bebas Neue";
+        font-size: 56px;
+      }
     }
 
     .list-portofolio-section {
@@ -204,27 +208,25 @@
           right: 64px;
           width: 400px;
           height: 400px;
-          background-color: red;
+          background-color: transparent;
+          border-radius: 20px;
           display: flex;
           justify-content: center;
           transform: translateY(0px);
           overflow-y: hidden;
+          z-index: -1;
 
           .img-wrapper {
             width: 400px;
-            min-height: 400px;
-            opacity: 0.5;
+            height: 400px;
             position: absolute;
+            border-radius: 20px;
 
-            .image-one {
-              position: absolute;
-              height: 400px;
+            .img-preview-porto {
               width: 400px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              bottom: -100%;
-              background-color: green;
+              height: 400px;
+              object-fit: cover;
+              border-radius: 20px;
             }
           }
         }

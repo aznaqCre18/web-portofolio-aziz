@@ -1,4 +1,26 @@
-const works = ["rapor", "ruddis", "yayasan web", "covaccine"];
+const works = [
+  {
+    label: "rapor",
+    background: "#FFFFFF",
+    imgUrl: "/assets/images/porto-rapor.png",
+  },
+  {
+    label: "azcomp",
+    background: "#87CEFA",
+    imgUrl: "/assets/images/porto-comp.png",
+  },
+  {
+    label: "yayasan web",
+    background: "#90EE90",
+    imgUrl: "/assets/images/porto-yayasan.png",
+  },
+  {
+    label: "covaccine",
+    background: "#FFD700",
+    imgUrl: "/assets/images/porto-covac.png",
+  },
+];
+
 const company = [
   {
     id: 0,

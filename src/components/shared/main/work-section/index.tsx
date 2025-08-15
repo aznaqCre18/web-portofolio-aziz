@@ -5,8 +5,6 @@ import { works } from "@/consts/skillsSet";
 import Image from "next/image";
 import { cn } from "@/utils/utils";
 
-const arrDumIm = ["satu", "dua", "tiga", "empat", "lima"];
-
 const WorkSection = () => {
   const [hoveredListIndex, setHoveredListIndex] = useState<number | null>(null);
 
@@ -15,7 +13,9 @@ const WorkSection = () => {
   const arrowWorkSecRef = useRef<Array<HTMLSpanElement | null>>([]);
   const previewImageRef = useRef<HTMLDivElement>(null);
   const listPortoSectionRef = useRef<HTMLDivElement>(null);
-  const imagePreviewWorksRef = useRef<Array<HTMLImageElement | null>>([]);
+  const imagePreviewWorksRef = useRef<
+    Array<HTMLImageElement | null | HTMLDivElement>
+  >([]);
 
   useEffect(() => {
     const context = gsap.context(() => {
@@ -30,6 +30,10 @@ const WorkSection = () => {
 
       gsap.set(previewImageRef.current, {
         opacity: 0,
+      });
+
+      gsap.set(imagePreviewWorksRef.current, {
+        bottom: "-100%",
       });
     });
 
@@ -49,8 +53,6 @@ const WorkSection = () => {
 
   useEffect(() => {
     const workSectionRef = listPortoSectionRef.current;
-
-    console.log(imagePreviewWorksRef, "<<< IMG PREVIEW");
 
     if (workSectionRef) {
       workSectionRef.addEventListener("mouseenter", () => {
@@ -74,6 +76,13 @@ const WorkSection = () => {
     const spanRef = wordWorkRef.current[idx];
     const spanSecRef = wordWorkSecRef.current[idx];
     const arrowWorkRef = arrowWorkSecRef.current[idx];
+    const workRef = imagePreviewWorksRef.current;
+
+    gsap.to(workRef[idx], {
+      bottom: "0%",
+      duration: 0.8,
+      ease: "cubic-bezier(.71,.06,.06,.93)",
+    });
 
     if (!spanRef) return;
     if (!spanSecRef) return;
@@ -109,9 +118,16 @@ const WorkSection = () => {
     const spanRef = wordWorkRef.current[idx];
     const spanSecRef = wordWorkSecRef.current[idx];
     const arrowWorkRef = arrowWorkSecRef.current[idx];
+    const workRef = imagePreviewWorksRef.current;
 
     if (!spanRef) return;
     if (!spanSecRef) return;
+
+    gsap.to(workRef[idx], {
+      bottom: "-100%",
+      duration: 0.8,
+      ease: "cubic-bezier(.71,.06,.06,.93)",
+    });
 
     spanRef.forEach((span, index) => {
       if (span) {
@@ -146,7 +162,7 @@ const WorkSection = () => {
 
   return (
     <section className="work-section mt-[274px] mx-16">
-      <div className="py-16 border-b-1 border-[#D6D6D6] mb-16">
+      <div className="title-wrapper py-16 border-b-1 border-[#D6D6D6] mb-16">
         <p className="text-xl mb-3">My Selected Project</p>
         <h1 className="text-[56px]/16 color-foreground">
           Get a taste of <br /> what I do best
@@ -155,9 +171,26 @@ const WorkSection = () => {
       <div ref={listPortoSectionRef} className="list-portofolio-section">
         <div className="list-porto">
           <div ref={previewImageRef} className="preview-img flex flex-col">
-            {arrDumIm.map((im, idx) => (
-              <div className="img-wrapper" key={idx}>
-                <div className="image-one">{im}</div>
+            {works.map((im, idx) => (
+              <div
+                className={cn("img-wrapper")}
+                key={idx}
+                style={{ backgroundColor: im.background }}
+                ref={(ref) => {
+                  imagePreviewWorksRef.current[idx] = ref;
+                }}
+              >
+                {im.imgUrl ? (
+                  <Image
+                    width={400}
+                    height={400}
+                    src={im.imgUrl}
+                    alt={`img-porto-${idx}`}
+                    className="img-preview-porto bg-contain bg-center bg-no-repeat"
+                  />
+                ) : (
+                  <div className="image-one">{im.label}</div>
+                )}
               </div>
             ))}
           </div>
@@ -184,7 +217,7 @@ const WorkSection = () => {
               >
                 <div className="wrapper-work-text relative overflow-hidden h-[200px]">
                   <div className="work-text-1">
-                    {comp.split("").map((word, idxW) => (
+                    {comp.label.split("").map((word, idxW) => (
                       <span
                         className={`inline-block ${
                           word === " " ? "w-[0.5ch]" : ""
@@ -203,7 +236,7 @@ const WorkSection = () => {
                     ))}
                   </div>
                   <div className="work-text-2 absolute top-0 left-0">
-                    {comp.split("").map((word, idxW) => (
+                    {comp.label.split("").map((word, idxW) => (
                       <span
                         className={`inline-block ${
                           word === " " ? "w-[0.5ch]" : ""
