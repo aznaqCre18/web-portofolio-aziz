@@ -109,7 +109,7 @@ const WorkSection = () => {
       y: 0,
       rotation: 0,
       duration: 0.8,
-      delay: 1,
+      delay: 0.7,
       ease: "cubic-bezier(.71,.06,.06,.93)",
     });
   };
@@ -155,7 +155,7 @@ const WorkSection = () => {
       y: 250,
       rotation: -45,
       duration: 0.8,
-      delay: 1,
+      delay: 0.7,
       ease: "cubic-bezier(.71,.06,.06,.93)",
     });
   };
